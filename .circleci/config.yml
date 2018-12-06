@@ -3,7 +3,7 @@ jobs:
   deploy:
     working_directory: ~/app
     docker:
-      - image: circleci/ruby:2.4.3
+      - image: circleci/python:2.7
     steps:
       - checkout
 
@@ -17,7 +17,7 @@ jobs:
 
       - run:
           name: Deploying
-          command: eb deploy $CIRCLE_BRANCH-dummyApp3-env 
+          command: eb deploy $CIRCLE_BRANCH-dummyApp4-env 
 
 workflows:
   version: 2
