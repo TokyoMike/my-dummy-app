@@ -17,7 +17,7 @@ jobs:
 
       - run:
           name: Deploying
-          command: eb deploy $CIRCLE_BRANCH-dummyApp3  
+          command: eb deploy $CIRCLE_BRANCH-dummyApp3-env 
 
 workflows:
   version: 2
