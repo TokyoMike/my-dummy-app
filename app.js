@@ -1,5 +1,19 @@
- const request = require('request')
+const request = require('request')
 
+request.post('https://blooming-fortress-29641.herokuapp.com/testtest', {
+  json: {
+    todo: 'Buy the milk'
+  }
+}, (error, res, body) => {
+  if (error) {
+    console.log('second request');
+    console.error(error)
+    return
+  }
+  console.log(`statusCode: ${res.statusCode}`)
+  console.log('successful second request')
+  console.log(body)
+})
 
 
 // test
