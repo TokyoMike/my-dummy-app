@@ -1,3 +1,18 @@
+const request = require('request')
+koSanOutput = ''
+request.get('https://blooming-fortress-29641.herokuapp.com/testtest',
+ (error, res, body) => {
+  if (error) {
+    console.log('second request');
+    console.error(error)
+    return
+  }
+  console.log(`statusCode: ${res.statusCode}`)
+  console.log('successful second request')
+  console.log(body)
+  koSanOutput = body
+})
+
 //  TEST1
 var port = process.env.PORT || 3000,
     http = require('http'),
@@ -28,8 +43,11 @@ var server = http.createServer(function (req, res) {
         });
     } else {
         res.writeHead(200);
-        res.write(html);
-        res.end();
+        //res.write(html);
+        // res.setHeader('Content-Type', 'text/plain');
+        res.end(koSanOutput);
+        //res.end()
+
     }
 });
 
