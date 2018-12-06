@@ -45,7 +45,7 @@ var server = http.createServer(function (req, res) {
     } else {
         res.writeHead(200);
         //res.write(html);
-        res.setHeader('Content-Type', 'text/plain');
+        // res.setHeader('Content-Type', 'text/plain');
         res.end(koSanOutput);
         //res.end()
     }
