@@ -1,38 +1,31 @@
-# test
 version: 2
 jobs:
   deploy:
+    working_directory: ~/app
     docker:
-      - image: circleci/python:2.7
-    working_directory: ~/repo
+      - image: circleci/ruby:2.4.3
     steps:
       - checkout
+
       - run:
-          name: Install awscli
+          name: Installing deployment dependencies
+          working_directory: /
           command: |
+            sudo apt-get -y -qq update
+            sudo apt-get install python-pip python-dev build-essential
             sudo pip install awsebcli --upgrade
+
       - run:
-          name: Create AWS credentials manually
-          command: |
-            mkdir ~/.aws
-            touch ~/.aws/config
-            chmod 600 ~/.aws/config
-            echo "[profile eb-cli]" > ~/.aws/config
-            echo "aws_access_key_id=$AWS_ACCESS_KEY_ID" >> ~/.aws/config
-            echo "aws_secret_access_key=$AWS_SECRET_ACCESS_KEY" >> ~/.aws/config
-      - run:
-          name: Deploy to EB if branch is Master
-          command: |
-            eb use my-dummy-app --profile eb-cli 
-            eb deploy -v --staged --profile eb-cli
- 
+          name: Deploying
+          command: eb deploy my-dummy-app
+
 workflows:
   version: 2
-  build-deploy:
+  build:
     jobs:
       - deploy:
           filters:
             branches:
               only:
+                - staging
                 - master
-                - develop
