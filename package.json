@@ -1,9 +1,24 @@
 {
-  "name": "Elastic-Beanstalk-Sample-App",
+  "name": "elastic-beanstalk-sample-app",
   "version": "0.0.1",
   "private": true,
-  "dependencies": {},
+  "dependencies": {
+    "curl-request": "^1.1.1"
+  },
   "scripts": {
     "start": "node app.js"
-  }
+  },
+  "main": "app.js",
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/TokyoMike/my-dummy-app.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/TokyoMike/my-dummy-app/issues"
+  },
+  "homepage": "https://github.com/TokyoMike/my-dummy-app#readme",
+  "description": ""
 }
