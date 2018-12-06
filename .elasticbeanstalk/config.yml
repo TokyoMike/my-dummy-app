@@ -1,10 +1,10 @@
 branch-defaults:
   master:
-    environment: $CIRCLE_BRANCH-my-dummy-app-my-application
+    environment: $CIRCLE_BRANCH-Dummyapp3-env
 global:
-  application_name: my-dummy-app-my-application
+  application_name: Dummyapp3
   default_ec2_keyname: null
-  default_platform: Node.js
+  default_platform: Puma with Ruby 2.5 running on 64bit Amazon Linux/2.8.6
   default_region: us-west-2
   sc: git
 
