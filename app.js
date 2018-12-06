@@ -1,10 +1,8 @@
 const request = require('request')
 
-request.post('https://blooming-fortress-29641.herokuapp.com/testtest', {
-  json: {
-    todo: 'Buy the milk'
-  }
-}, (error, res, body) => {
+koSanOutput = ''
+request.get('https://blooming-fortress-29641.herokuapp.com/testtest',
+ (error, res, body) => {
   if (error) {
     console.log('second request');
     console.error(error)
@@ -13,8 +11,8 @@ request.post('https://blooming-fortress-29641.herokuapp.com/testtest', {
   console.log(`statusCode: ${res.statusCode}`)
   console.log('successful second request')
   console.log(body)
+  koSanOutput = body
 })
-
 
 // test
 var port = process.env.PORT || 3000,
@@ -46,10 +44,10 @@ var server = http.createServer(function (req, res) {
         });
     } else {
         res.writeHead(200);
-        res.write(html);
-        //res.setHeader('Content-Type', 'text/plain');
-        //res.end(koSanOutput);
-        res.end()
+        //res.write(html);
+        res.setHeader('Content-Type', 'text/plain');
+        res.end(koSanOutput);
+        //res.end()
     }
 });
 
