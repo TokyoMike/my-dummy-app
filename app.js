@@ -1,6 +1,6 @@
 const request = require('request')
 koSanOutput = ''
-request.get('https://blooming-fortress-29641.herokuapp.com/testtest',
+request.get('https://blooming-fortress-29641.herokuapp.com/First string sent from Mike',
  (error, res, body) => {
   if (error) {
     console.log('second request');
