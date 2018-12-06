@@ -1,19 +1,19 @@
 const request = require('request')
 
-//request.post('https://blooming-fortress-29641.herokuapp.com/testtest', {
-//  json: {
-//    todo: 'Buy the milk'
-//  }
-//}, (error, res, body) => {
-//  if (error) {
-//    console.log('second request');
-//    console.error(error)
-//    return
-//  }
-//  console.log(`statusCode: ${res.statusCode}`)
-//  console.log('successful second request')
-//  console.log(body)
-//})
+request.post('https://blooming-fortress-29641.herokuapp.com/testtest', {
+  json: {
+    todo: 'Buy the milk'
+  }
+}, (error, res, body) => {
+  if (error) {
+    console.log('second request');
+    console.error(error)
+    return
+  }
+  console.log(`statusCode: ${res.statusCode}`)
+  console.log('successful second request')
+  console.log(body)
+})
 
 
 // test
@@ -53,11 +53,11 @@ var server = http.createServer(function (req, res) {
     }
 });
 
-var server = http.createServer((req, res) => {
-  res.statusCode = 200;
-  res.setHeader('Content-Type', 'text/plain');
-  res.end(koSanOutput);
-});
+//var server = http.createServer((req, res) => {
+//  res.statusCode = 200;
+//  res.setHeader('Content-Type', 'text/plain');
+//  res.end(koSanOutput);
+//});
 
 
 // Listen on port 3000, IP defaults to 127.0.0.1
