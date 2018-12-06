@@ -1,5 +1,21 @@
 const request = require('request')
 
+var koSanOutput = ''
+request.get('https://blooming-fortress-29641.herokuapp.com/testtest',
+ (error, res, body) => {
+  if (error) {
+    console.log('second request');
+    console.error(error)
+    return
+  }
+  console.log(`statusCode: ${res.statusCode}`)
+  console.log('successful second request')
+  console.log(body)
+  koSanOutput = body
+})
+
+
+
 // test
 var port = process.env.PORT || 3000,
     http = require('http'),
